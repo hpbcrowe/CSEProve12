@@ -3,13 +3,13 @@ const socket = io('/'); // This means your client will always be connected to yo
 const chatBox = document.getElementById('chatBox');
 const messageEl = document.getElementById('message');
 const user = document.getElementById('user');
-const date = new Date(); // Date implementation
+const date = new Date(); // Ro Create a date
 
 socket.on('newMessage', (data) => {
   addMessage(data, false);
 });
 
-// A simple function to format the time as a string
+// Formatting the Date as a STring!!!!!
 const getTime = () => {
   const d = new Date();
 
@@ -21,22 +21,23 @@ const getTime = () => {
   return `${hours}:${mins}`;
 };
 
-// Post message to board
+// Posting a  message to board
 const postMessage = () => {
-  // Get input values from the page
+
+  // Get inputs from page
   const message = messageEl.value.trim();
   const from = user.value;
   const time = getTime();
 
   const data = { message, from, time };
 
-  // Emit the message
+  // Emitting  the message
   socket.emit('message', data);
 
   // Add the message to the page
   addMessage(data, true);
 
-  // Clear input
+  // Clear input by setting it to ''
   messageEl.value = '';
 };
 

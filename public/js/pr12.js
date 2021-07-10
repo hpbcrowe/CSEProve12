@@ -2,9 +2,9 @@ const socket = io('/'); // This means your client will always be connected to yo
 
 const errorContainer = document.getElementById('errMsg');
 const usernameInput = document.getElementById('username');
-const date = new Date()
+const date = new Date()  //initializing the date...
 
-// A simple async POST request function
+// Using ASYNC to do a post function
 const getData = async (url = '') => {
     const response = await fetch(url, {
       method: 'GET',
@@ -39,10 +39,11 @@ const getTime = () => {
 
 // Login user to access chat room.
 const login = async () => {
-    // Get the username from our input
+
+    // Get the username from  the input
     const username = usernameInput.value;
   
-    // Do some simple validation on the client-side
+    // Checking to see if there is a username or if it is blank....
     errorContainer.innerHTML = '';
     if (!username || username.trim() === '') {
       errorContainer.innerHTML = 'Username cannot be empty!';
